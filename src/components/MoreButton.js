@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-function MoreButton(props) {
-  return <button onClick={/* Fill me in! */ null}>More sushi!</button>;
+function MoreButton({ onMoreSushi }) {
+  const [fourMore, setFourMore] = useState(4)
+
+  function handleAdditionalSushi() {
+    setFourMore(fourMore => fourMore + 4);
+    onMoreSushi(fourMore);
+  }
+
+  return <button onClick={handleAdditionalSushi}>More sushi!</button>;
 }
 
 export default MoreButton;
