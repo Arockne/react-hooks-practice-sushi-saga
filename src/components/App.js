@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SushiContainer from "./SushiContainer";
 import Table from "./Table";
+import MoneyForm from './MoneyForm'
 
 /*
 1. The sushi list is properly received from the server and displayed in our app. *
@@ -43,8 +44,13 @@ function App() {
     }
   }
 
+  function handleAddingMoney(additionalFunds) {
+    setMoney(money => Number(money) + Number(additionalFunds))
+  }
+
   return (
     <div className="app">
+      <MoneyForm onAddingMoney={handleAddingMoney}/>
       <SushiContainer sushi={sushi} onPlates={handlePlates} />
       <Table plates={plates} money={money}/>
     </div>
