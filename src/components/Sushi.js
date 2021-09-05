@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Sushi({ sushi, onPlates }) {
-  const [eaten, setEaten] = useState(false)
+  const [eaten, setEaten] = useState(sushi.eaten || false)
   
   function handleClickEaten() {
     onPlates(sushi, setEaten)

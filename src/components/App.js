@@ -33,6 +33,11 @@ function App() {
     const alreadyEaten = !plates.some(plate => plate.id === eaten.id)
     if (alreadyEaten && money >= eaten.price) {
       setPlates([ ...plates, eaten])
+      sushi.forEach(sushi => {
+        if (sushi.id === eaten.id) {
+          sushi.eaten = true
+        }
+      })
       emptyPlate(true)
       setMoney(money => money - eaten.price)
     }
